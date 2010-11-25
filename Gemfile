@@ -38,4 +38,5 @@ group :test, :development do
   gem 'launchy', '~> 0.3.7'
   gem 'machinist', '~> 1.0.6'
   gem 'pickle', '~> 0.4.2'
+  gem 'database_cleaner', '~> 0.5.2'
 end

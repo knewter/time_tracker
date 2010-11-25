@@ -1,0 +1,16 @@
+<h1>TicketPicker#index</h1>
+<p>Pick a ticket using the following dropdowns.</p>
+
+<%= form_tag do -%>
+  <p>Client</p>
+  <%= select_tag :client %>
+
+  <p>Project</p>
+  <%= select_tag :project %>
+
+  <p>Ticket</p>
+  <%= select_tag :ticket %>
+
+  <p>Pick Ticket</p>
+  <%= submit_tag -%>
+<% end %>

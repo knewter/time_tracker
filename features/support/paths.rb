@@ -11,6 +11,9 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
 
+    when /the ticket picker page/
+      '/ticket_picker'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

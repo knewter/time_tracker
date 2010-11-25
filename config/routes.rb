@@ -1,4 +1,6 @@
 TimeTracker::Application.routes.draw do
+  match 'ticket_picker' => 'ticket_picker#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
