@@ -1,15 +1,19 @@
-<h1>TicketPicker#index</h1>
+<h1>Ticket Picker</h1>
 <p>Pick a ticket using the following dropdowns.</p>
 
 <%= form_tag do -%>
   <p>Client</p>
-  <%= select_tag :client %>
+  <%= select_tag :client_id, "<option></option>".html_safe + options_from_collection_for_select(@clients, :id, :name, :selected => (@client ? @client.id : nil)) %>
 
-  <p>Project</p>
-  <%= select_tag :project %>
+  <% if @projects %>
+    <p>Project</p>
+    <%= select_tag :project_id, "<option></option>".html_safe + options_from_collection_for_select(@projects, :id, :name, :selected => (@project ? @project.id : nil)) %>
+  <% end %>
 
-  <p>Ticket</p>
-  <%= select_tag :ticket %>
+  <% if @tickets %>
+    <p>Ticket</p>
+    <%= select_tag :ticket_id, "<option></option>".html_safe + options_from_collection_for_select(@tickets, :id, :name) %>
+  <% end %>
 
   <p>Pick Ticket</p>
   <%= submit_tag -%>
