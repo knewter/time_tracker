@@ -29,6 +29,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 #   gem 'webrat'
 # end
 
+gem "jquery-rails"
+
 group :test, :development do
   gem "rspec-rails", ">= 2.0.1"
   gem 'shoulda', '~> 2.11.3'

@@ -2,19 +2,27 @@
 <p>Pick a ticket using the following dropdowns.</p>
 
 <%= form_tag do -%>
-  <p>Client</p>
-  <%= select_tag :client_id, "<option></option>".html_safe + options_from_collection_for_select(@clients, :id, :name, :selected => (@client ? @client.id : nil)) %>
+  <div id='client'>
+    <p>Client</p>
+    <%= select_tag :client_id, "<option></option>".html_safe + options_from_collection_for_select(@clients, :id, :name, :selected => (@client ? @client.id : nil)) %>
+  </div>
 
-  <% if @projects %>
-    <p>Project</p>
-    <%= select_tag :project_id, "<option></option>".html_safe + options_from_collection_for_select(@projects, :id, :name, :selected => (@project ? @project.id : nil)) %>
-  <% end %>
+  <div id='project'>
+    <% if @projects %>
+      <p>Project</p>
+      <%= select_tag :project_id, "<option></option>".html_safe + options_from_collection_for_select(@projects, :id, :name, :selected => (@project ? @project.id : nil)) %>
+    <% end %>
+  </div>
 
-  <% if @tickets %>
-    <p>Ticket</p>
-    <%= select_tag :ticket_id, "<option></option>".html_safe + options_from_collection_for_select(@tickets, :id, :name) %>
-  <% end %>
+  <div id='ticket'>
+    <% if @tickets %>
+      <p>Ticket</p>
+      <%= select_tag :ticket_id, "<option></option>".html_safe + options_from_collection_for_select(@tickets, :id, :name) %>
+    <% end %>
+  </div>
 
-  <p>Pick Ticket</p>
+  <p id='pick_ticket'>Pick Ticket</p>
   <%= submit_tag -%>
 <% end %>
+
+<%= javascript_include_tag('ticket_picker') -%>

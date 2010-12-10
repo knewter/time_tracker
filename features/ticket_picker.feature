@@ -25,4 +25,6 @@ Feature: Ticket Picker
     And I am on the ticket picker page
     When I select "test client" from "client_id"
     And I select "test project" from "project_id"
-    Then I should see "test ticket" within "#ticket_id"
+    And I select "test ticket" from "ticket_id"
+    And I press "Save changes"
+    Then I should see "Ticket was selected." within ".flash.notice"

@@ -13,7 +13,7 @@ class TicketPickerController < ApplicationController
   end
 
   def load_client
-    if params[:client_id]
+    if !params[:client_id].blank?
       @client = Client.find(params[:client_id])
     end
   end
@@ -25,7 +25,7 @@ class TicketPickerController < ApplicationController
   end
 
   def load_project
-    if params[:project_id]
+    if !params[:project_id].blank?
       @project = @client.projects.find(params[:project_id])
     end
   end
@@ -45,7 +45,7 @@ class TicketPickerController < ApplicationController
         respond_with @tickets
       end
     end
-    if params[:ticket_id]
+    if !params[:ticket_id].blank?
       flash[:notice] = "Ticket was selected."
       redirect_to :action => 'index'
     end
